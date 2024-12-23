@@ -1,0 +1,34 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    background-image: url(./WhatsApp\ Image\ 2024-10-02\ at\ 12.11.48\ \(3\).jpeg);
+  }
+  .container {
+    margin-top: 50px;
+  }
+  #message {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  input {
+    padding: 10px;
+    font-size: 18px;
+  }
+  button {
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    color: black;
+    background-color: red;
+  }
+#guess{
+    height: 20px;
+  }
+  h1{
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+  }
+  p{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  }

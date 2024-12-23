@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guess My Number Game</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>Guess My Number! (Between 1 and 20)</h1>
+    <p id="message">Start guessing.....</p>
+    <input type="number" id="guess" placeholder="Enter your guess" />
+    <button onclick="checkGuess()">Check!</button>
+    <p>Score: <span id="score">20</span></p>
+    <p>Highscore: <span id="highscore">0</span></p>
+    <button onclick="resetGame()">Again!</button>
+  </div>
+
+  <script>
+    let secretNumber = Math.trunc(Math.random() * 20) + 1;
+    let score = 20;
+    let highscore = 0;
+
+    function displayMessage(message) {
+      document.getElementById('message').textContent = message;
+    }
+
+    function checkGuess() {
+      const guess = Number(document.getElementById('guess').value);
+
+      if (!guess) {
+        displayMessage('⛔️ Enter your number!');
+      } else if (guess === secretNumber) {
+        displayMessage('🎉 Correct Number!');
+        document.body.style.backgroundColor = '#60b347';
+
+        if (score > highscore) {
+          highscore = score;
+          document.getElementById('highscore').textContent = highscore;
+        }
+      } else if (guess !== secretNumber) {
+        if (score > 1) {
+          displayMessage(guess > secretNumber ? '📈 Too high!' : '📉 Too low!');
+          score--;
+          document.getElementById('score').textContent = score;
+        } else {
+          displayMessage('💥 You lost the game!');
+          document.getElementById('score').textContent = 0;
+        }
+      }
+    }
+
+    function resetGame() {
+      score = 20;
+      secretNumber = Math.trunc(Math.random() * 20) + 1;
+      displayMessage('Start guessing...');
+      document.getElementById('score').textContent = score;
+      document.getElementById('guess').value = '';
+      document.body.style.backgroundColor = '#222';
+    }
+  </script>
+
+</body>
+</html>
